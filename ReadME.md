@@ -1,97 +1,151 @@
-# AI/ML Recruitment 2026
 
-A collection of AI/ML projects exploring data analysis, machine learning, and neural networks as part of the AI/ML recruitment process.
+# AI/ML Recruitment 2026
 
 ## Candidate Details
 
-* **Name:** Priyansu Samal
-* **Institution:** SRM Institute of Science and Technology
-* **Department:** Computer Science and Engineering
-* **Year:** Second Year
+- **Name:** Priyansu Samal
+- **Domain:** Artificial Intelligence and Machine Learning
+- **Year:** Second Year
+- **Institution:** SRM Institute of Science and Technology
 
-## Tasks
+---
 
-### Task 1: Air Quality Forecasting
+## Tasks Completed
 
-**Status:** Planned
+| Task | Project | Description |
+|---|---|---|
+| Task 1 | Air Quality Forecasting | Forecasting the next hour's CO concentration using historical air quality data and a Random Forest regression model. |
+| Task 2 | MNIST Neural Network | Building and evaluating a neural network to classify handwritten digits from the MNIST dataset. |
 
-Analyze historical air-quality measurements and build a machine learning model to predict future air quality using time-series data.
+---
 
-### Task 2: Neural Network — MNIST
+# Task 1: Air Quality Forecasting
 
-**Status:** Completed
+## Problem Statement
 
-Build and train a neural network to classify handwritten digits from 0 to 9 using the MNIST dataset.
+The objective of this task is to analyze historical air quality data, identify patterns in pollutant concentrations, and develop a machine learning model to forecast future air quality measurements.
 
-## Project Structure
+The project focuses on predicting the next hour's carbon monoxide (CO) concentration using historical measurements and environmental features.
+
+## Dataset
+
+- **Dataset:** UCI Air Quality Dataset
+- **Source:** UCI Machine Learning Repository
+- **Data:** Hourly air quality measurements and environmental variables.
+- **Target:** Next-hour CO concentration (`CO(GT)`).
+
+## Approach
+
+1. **Data Loading:** Loaded the dataset using Pandas and inspected its structure.
+2. **Data Cleaning:** Removed empty rows, handled `-200` missing-value markers, and created a datetime column.
+3. **Exploratory Data Analysis:** Visualized pollutant distributions, missing values, and changes in CO concentration over time.
+4. **Feature Engineering:** Created time-based features, lag features, and rolling averages.
+5. **Model Training:** Used a Random Forest Regressor with a chronological 80:20 training-testing split.
+6. **Evaluation:** Evaluated predictions using MAE, MSE, RMSE, and R².
+7. **Analysis:** Examined feature importance and prediction errors.
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Scikit-learn
+- Google Colab
+
+## Results
+
+The model was evaluated using the following regression metrics:
+
+- **MAE:** To measure average absolute prediction error.
+- **MSE:** To measure average squared prediction error.
+- **RMSE:** To measure prediction error in the target's original units.
+- **R² Score:** To measure how well the model explains variation in the target.
+
+*The actual metric values and observations will be added after final model evaluation.*
+
+## Limitations
+
+1. The dataset contains missing values, particularly in the `NMHC(GT)` column.
+2. The dataset represents measurements from a single monitoring location.
+3. The model may not capture sudden changes in pollution caused by unusual events or changing environmental conditions.
+
+---
+
+# Task 2: MNIST Neural Network
+
+## Problem Statement
+
+The objective of this task is to build a neural network that classifies handwritten digits from 0 to 9 using the MNIST dataset.
+
+The model learns patterns from labeled handwritten digit images and predicts the corresponding digit for unseen images.
+
+## Dataset
+
+- **Dataset:** MNIST Handwritten Digits
+- **Input:** 28 × 28 grayscale images.
+- **Classes:** Digits 0–9.
+- **Task:** Multiclass image classification.
+
+## Approach
+
+1. Loaded the MNIST dataset.
+2. Explored the dataset and visualized handwritten digit samples.
+3. Normalized pixel values to the range 0–1.
+4. Built a neural network using a hidden layer with ReLU activation and an output layer with Softmax activation.
+5. Trained and evaluated the model.
+6. Compared model configurations with different numbers of hidden neurons.
+
+## Technologies Used
+
+- Python
+- TensorFlow / Keras
+- NumPy
+- Matplotlib
+- Google Colab
+
+## Results
+
+Two model configurations were evaluated:
+
+| Hidden Neurons | Test Accuracy | Test Loss |
+|---|---:|---:|
+| 128 | 97.50% | 0.0794 |
+| 64 | 97.15% | 0.0918 |
+
+The model with 128 hidden neurons achieved a test accuracy of **97.50%**.
+
+---
+
+# Key Learnings
+
+1. Learned how to clean and preprocess real-world datasets, including handling missing values.
+2. Gained practical experience in feature engineering, model training, and evaluating machine learning models.
+3. Understood the fundamentals of neural networks and how model architecture can affect classification performance.
+
+---
+
+# Challenges Faced
+
+1. Handling missing and invalid values in the air quality dataset.
+2. Understanding how to create time-based features and prevent future information from leaking into the training data.
+3. Learning how to build, train, and evaluate a neural network for handwritten digit classification.
+
+---
+
+# Repository Structure
 
 ```text
 AIML-Recruitment-2026-PriyansuSamal/
-│
 ├── README.md
-│
 ├── Task-1-Air-Quality-Forecasting/
-│
+│   └── AIML_Recruitment_Air_Quality.ipynb
 └── Task-2-MNIST-Neural-Network/
     └── AIML_Recruitment_MNIST.ipynb
 ```
 
-## Task 2: MNIST Neural Network
+---
 
-### Problem Statement
+## Acknowledgment
 
-Build a neural network that recognizes handwritten digits from 0 to 9 using the MNIST dataset.
-
-### Approach
-
-1. Load and explore the MNIST dataset.
-2. Normalize image pixel values to the range 0–1.
-3. Build a neural network using TensorFlow and Keras.
-4. Use ReLU activation in the hidden layer and Softmax in the output layer.
-5. Train and evaluate the model using accuracy and loss.
-6. Visualize training curves and a confusion matrix.
-7. Experiment with different hidden layer sizes and compare performance.
-
-### Technologies Used
-
-* Python
-* TensorFlow and Keras
-* NumPy
-* Matplotlib
-* Scikit-learn
-* Google Colab
-
-### Results
-
-| Model                  | Test Accuracy | Test Loss |
-| ---------------------- | ------------: | --------: |
-| Baseline (128 neurons) |        97.50% |    0.0794 |
-| Modified (64 neurons)  |        97.15% |    0.0918 |
-
-### Key Learnings
-
-1. Learned how to load and preprocess image data.
-2. Understood neural network architecture and activation functions.
-3. Learned to train and evaluate a classification model.
-4. Interpreted accuracy and loss curves and a confusion matrix.
-5. Explored how changing the number of hidden neurons affects performance.
-
-### Challenge and Solution
-
-**Challenge:** Preparing image data for neural network training.
-
-**Solution:** Normalized pixel values to the range 0–1 and used a Flatten layer to convert each image into a one-dimensional vector.
-
-## Task 1: Air Quality Forecasting
-
-This section will be updated with the dataset, preprocessing, exploratory analysis, forecasting model, evaluation metrics, and findings after completing Task 1.
-
-## How to Run
-
-1. Open the relevant notebook in Google Colab.
-2. Run the cells from top to bottom.
-3. Review the outputs, visualizations, and results.
-
-## Repository
-
-This repository contains the notebooks, code, and documentation for the AI/ML recruitment tasks.
+This repository was created as part of the AI/ML Recruitment 2026 tasks to explore data analysis, machine learning, and neural networks through hands-on projects.
